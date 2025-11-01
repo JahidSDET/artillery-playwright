@@ -1,0 +1,30 @@
+config:
+  target: "https://automationexercise.com"
+  jsModule: true
+  engines:
+    playwright: {}
+  processor: "./tests/artillery/HomePageLoadTest.ts"
+  phases:
+    - name: "Ramp Up Phase"
+      duration: 10        # 1 minute
+      arrivalRate: 1      # start with 2 users/sec
+    - name: "Peak Load Phase"
+      duration: 15      # 2 minutes
+      arrivalRate: 2      # peak at 4 users/sec
+    - name: "Cool-down Phase"
+      duration: 10        # 1 minute
+      arrivalRate: 1      # reduce to 1 user/sec
+
+  reports:
+    formats:
+      - html
+      - json
+
+scenarios:
+  - name: Home Page Load Test
+    engine: playwright
+    testFunction: "HomePageloadTest"
+    flow:
+      - log: "Starting Home Page Load Test"
+      - function: "HomePageloadTest"
+      - log: "Completed Home Page Load Test"

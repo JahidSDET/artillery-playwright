@@ -1,0 +1,70 @@
+1. To see report in artillery,io- 
+artillery run artillery.yml --record --key a9_wfcu5xrp0bfw6fsfwtgw5xo95rnv25an
+
+2. artillery run artillery.yml report.json 
+
+====================================================
+What is FCP?
+
+First Contentful Paint is a browser performance metric that measures:
+
+How long it takes for the browser to render the first piece of content on the screen
+(text, image, canvas, SVG — anything visible)
+
+It tells you when users first see something happening on the page.
+
+=========================================================
+
+CLS measures visual stability — whether page elements move around while loading.
+
+The AutomationExercise website loads in a very static way (no dynamic content shifting like ads, lazy-loaded images, etc.). So if there is no layout shift, then CLS will naturally be 0.
+
+This is normal and expected behavior — not an issue in your test.
+===========================================
+✅ FID — First Input Delay
+
+What it means:
+FID measures how quickly the page responds when a user first interacts (click, tap, press key).
+
+Time between the user's first action and the browser's response starting.
+
+Example: You click a button — if the page is busy loading scripts, your click may lag.
+
+Good FID: < 100ms
+High FID = page is blocked by heavy JavaScript
+
+========================================================
+
+✅ INP — Interaction to Next Paint
+
+What it means:
+INP measures the responsiveness of all user interactions during the page visit, not just the first one, and reports the worst/slowest interaction.
+
+Time between any user action and the visual update on screen.
+
+INP is replacing FID as the main responsiveness metric.
+
+Good INP: < 200ms
+
+Think of it as: A better, modern metric for page interactivity than FID.
+
+======================================================================
+
+✅ LCP — Largest Contentful Paint
+
+What it means:
+LCP measures how long it takes to load the largest visible element on screen (big banner, hero image, heading text, etc).
+
+When the main visible content finishes loading.
+
+This is a core UX metric — users feel the site is ready when LCP completes.
+
+Good LCP: < 2.5 seconds
+===================================================================================
+
+📊 Quick Cheat Sheet
+Metric	Measures	Goal
+FCP	First visible content	< 1.8s
+LCP	Main content fully appears	< 2.5s
+FID	Delay on first interaction	< 100ms
+INP	Delay on all interactions	< 200ms

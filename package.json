@@ -1,0 +1,14 @@
+{
+  "name": "artillery-playwright-ts",
+  "version": "1.0.0",
+  "scripts": {
+    "test:load": "npx artillery run artillery.yml --output report.json",
+    "report:html": "node generateReport.js",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "artillery": "^2.0.26",
+    "typescript": "^5.0.0"
+  }
+}
